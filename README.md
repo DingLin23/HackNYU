@@ -1,2 +1,2 @@
 # Kids Diet Tracker
-![Alt Text](https://imgur.com/a/eq31JQq)
+ ![](Kids_Diet_Tracker.gif)
