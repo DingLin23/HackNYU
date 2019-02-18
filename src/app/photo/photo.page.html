@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Take A Picture</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!-- <div style="display:flex; flex-direction: column; justify-content: center">
+    <ion-button expand="full" (click)="capture(1)">Ttake a picture</ion-button>
+    <ion-button expand="full" (click)="capture(0)">Select a picture</ion-button>
+  </div> -->
+
+  <ion-card *ngIf="imageLabels.length > 0">
+    <img src="{{ imageUrl }}" height="360 px" width="120 px" />
+    <ion-card-header *ngIf="itemString != ''">
+      <ion-card-title>{{ itemString }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content *ngIf="itemString === ''">
+      <ion-item>
+        <ion-label>Label</ion-label>
+        <ion-select [(ngModel)]="itemName" placeholder="Select One" required>
+          <ion-select-option *ngFor="let label of imageLabels" value="{{ label.description }}">
+            {{ label.description }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-row no-padding>
+        <ion-col size="6">
+          <ion-button expand="full" color="danger" (click)="close()">
+            <ion-icon name="close" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="full" color="success" (click)="openModal()">
+            <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+
+    <ion-card-content *ngIf="fullNutrients.length > 0">
+      <ion-list>
+        <ion-row>
+          <ion-col size="6">Protein</ion-col>
+          <ion-col size="3">{{ fullNutrients[0][0].value }}</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="6">Calories</ion-col>
+          <ion-col size="3">{{ fullNutrients[0][1].value }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">Zinc</ion-col>
+          <ion-col size="3">{{ fullNutrients[0][2].value }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">Vitamin A</ion-col>
+          <ion-col size="3">{{ fullNutrients[0][3].value }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">Vitamin D</ion-col>
+          <ion-col size="3">{{ fullNutrients[0][4].value }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">Vitamin C</ion-col>
+          <ion-col size="3">{{ fullNutrients[0][5].value }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">Vitamin E</ion-col>
+          <ion-col size="3">{{ fullNutrients[0][6].value }}</ion-col>
+        </ion-row>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+<ion-fab vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="camera"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-button round (click)="capture(1)"><ion-icon name="camera"></ion-icon>Take A Photo</ion-button>
+    <ion-button round (click)="capture(0)"><ion-icon name="albums"></ion-icon>Select Album</ion-button>
+  </ion-fab-list>
+</ion-fab>
