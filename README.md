@@ -1,6 +1,6 @@
 # Kids Diet Tracker
 
-** Kids Diet Tracker** is a children diet tracking application for iOS & Android.
+**Kids Diet Tracker** is a children diet tracking application for iOS & Android.
 
  
 
