@@ -56,7 +56,7 @@ Second time using Angular, and the schedule will be very tight.
 
  
 
-\## License
+## License
 
  
 
